@@ -6,7 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-export class LoginThree {
+export class LoginStar {
   _model2: any;
   _bloomPass: any;
   _composer: any;
@@ -30,9 +30,9 @@ export class LoginThree {
     const renderPass = new RenderPass(this._scene, this._camera);
     const bloomPass = new UnrealBloomPass(
       new THREE.Vector2(window.innerWidth, window.innerHeight),
-      0.5,
+      100,
       0.1,
-      0.1,
+      0.3,
     );
     const composer = new EffectComposer(this._renderer);
     composer.addPass(renderPass);
@@ -73,43 +73,43 @@ export class LoginThree {
     this._camera = camera;
   }
   _setupLight() {
-    const color1 = '#FFFFFF';
-    const color2 = '#00D9FF';
-    const light1 = new THREE.PointLight(color1, 1);
-    const light2 = new THREE.PointLight(color2, 2.3);
-    light1.position.set(0, 1.212, 1.951);
-    light2.position.set(-31.85, 0.0, 0);
-    this._scene.add(light1);
-    this._scene.add(light2);
+    // const color1 = '#FFFFFF';
+    // const color2 = '#00D9FF';
+    // const light1 = new THREE.PointLight(color1, 1);
+    // const light2 = new THREE.PointLight(color2, 2.3);
+    // light1.position.set(0, 1.212, 1.951);
+    // light2.position.set(-31.85, 0.0, 0);
+    // this._scene.add(light1);
+    // this._scene.add(light2);
   }
   _setupModel() {
-    new GLTFLoader().load('/login/santa_elf_text.glb', (gltf) => {
-      const model1 = gltf.scene;
-      this._scene.add(model1);
+    // new GLTFLoader().load('/login/santa_elf_text.glb', (gltf) => {
+    //   const model1 = gltf.scene;
+    //   this._scene.add(model1);
 
-      const clips = gltf.animations;
-      const mixer = new THREE.AnimationMixer(model1);
-      const clip1 = THREE.AnimationClip.findByName(
-        clips,
-        'Armature|mixamo.com|Layer0',
-      );
-      const clip2 = THREE.AnimationClip.findByName(
-        clips,
-        'Armature.001|mixamo.com|Layer0',
-      );
-      const clip3 = THREE.AnimationClip.findByName(
-        clips,
-        'Armature|mixamo.com|Layer0.001',
-      );
-      const action1 = mixer.clipAction(clip1);
-      const action2 = mixer.clipAction(clip2);
-      const action3 = mixer.clipAction(clip3);
-      action1.play();
-      action2.play();
-      action3.play();
+    //   const clips = gltf.animations;
+    //   const mixer = new THREE.AnimationMixer(model1);
+    //   const clip1 = THREE.AnimationClip.findByName(
+    //     clips,
+    //     'Armature|mixamo.com|Layer0',
+    //   );
+    //   const clip2 = THREE.AnimationClip.findByName(
+    //     clips,
+    //     'Armature.001|mixamo.com|Layer0',
+    //   );
+    //   const clip3 = THREE.AnimationClip.findByName(
+    //     clips,
+    //     'Armature|mixamo.com|Layer0.001',
+    //   );
+    //   const action1 = mixer.clipAction(clip1);
+    //   const action2 = mixer.clipAction(clip2);
+    //   const action3 = mixer.clipAction(clip3);
+    //   action1.play();
+    //   action2.play();
+    //   action3.play();
 
-      this._mixer = mixer;
-    });
+    //   this._mixer = mixer;
+    // });
     new GLTFLoader().load('/login/login_env.glb', (gltf) => {
       const model2 = gltf.scene;
       this._model2 = model2;
@@ -117,15 +117,14 @@ export class LoginThree {
     });
   }
   _setupControls() {
-    this._orbitControls = new OrbitControls(this._camera, this._divContainer);
+    // this._orbitControls = new OrbitControls(this._camera, this._divContainer);
   }
 
   _setupEvents() {
-    window.onresize = this.resize.bind(this);
-    this.resize();
-
-    this._clock = new THREE.Clock();
-    requestAnimationFrame(this.render.bind(this));
+    // window.onresize = this.resize.bind(this);
+    // this.resize();
+    // this._clock = new THREE.Clock();
+    // requestAnimationFrame(this.render.bind(this));
   }
 
   update() {
